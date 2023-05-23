@@ -1,27 +1,52 @@
-body {
-
+/* html {
+    box-sizing: border-box;
 }
+
+*, *::before, *::after {
+    padding: 0; 
+    margin: 0; 
+    box-sizing: inherit;
+} */
+
+div {
+    border: 1px solid rgb(245, 68, 68);
+}
+
 .navbar {
-    float: left;
+    /* overflow: hidden; */
+    /* margin: 0;  */
+    /* padding: 0;  */
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid rgb(0,0,0);
 }
 
 .logo {
-    margin: 0; 
-    padding: 0; 
-    display: inline;
+    float: left;
+    display: inline-flex; 
+    border: 1px solid rgb(100,100, 100);
 }
 
-ul {
+.profile {
+    display: inline-flex;
+    margin: 0; 
+    padding: 0; 
+    border: 1px solid rgb(100,100, 100);
+}
+
+.menu {
     list-style: none;
     margin: 0;
     padding: 0; 
+    border: 1px solid rgb(123,1,123); 
 }
 
-.navbar li {
-    display: inline-flex;
+.menu li {
+    display: inline-block; 
+    border: 1px dotted blueviolet;
 }
 
-.navbar li a{
+.menu li a{
     color: black; 
     text-align: center; 
     padding: 10px 14px; 
