@@ -1,4 +1,4 @@
-/* html {
+html {
     box-sizing: border-box;
 }
 
@@ -6,7 +6,7 @@
     padding: 0; 
     margin: 0; 
     box-sizing: inherit;
-} */
+}
 
 div {
     border: 1px solid rgb(245, 68, 68);
@@ -17,7 +17,7 @@ div {
     /* margin: 0;  */
     /* padding: 0;  */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border: 2px solid rgb(0,0,0);
 }
 
@@ -47,9 +47,14 @@ div {
 }
 
 .menu li a{
+    height: inherit; 
     color: black; 
     text-align: center; 
     padding: 10px 14px; 
     text-decoration: none;
 }
 
+.menu li a:hover {
+    color: white; 
+    background-color: black; 
+}
