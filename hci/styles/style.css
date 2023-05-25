@@ -12,49 +12,81 @@ div {
     border: 1px solid rgb(245, 68, 68);
 }
 
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto; 
+}
+
 .navbar {
-    /* overflow: hidden; */
-    /* margin: 0;  */
-    /* padding: 0;  */
+    overflow: hidden;
+    margin: 0; 
+    padding: 0; 
     display: flex;
-    justify-content: space-between;
-    border: 2px solid rgb(0,0,0);
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;  
+    /* border: 2px solid rgb(0,0,0); */
 }
 
 .logo {
-    float: left;
-    display: inline-flex; 
-    border: 1px solid rgb(100,100, 100);
+
+    /* display: inline-flex;  */
+    margin-bottom: auto;
+    /* border: 1px solid rgb(100,100, 100); */
 }
 
 .profile {
     display: inline-flex;
-    margin: 0; 
-    padding: 0; 
+    margin-bottom: auto;
     border: 1px solid rgb(100,100, 100);
 }
 
 .menu {
     list-style: none;
-    margin: 0;
-    padding: 0; 
-    border: 1px solid rgb(123,1,123); 
+    /* margin-bottom: auto; */
+    align-items: center;
+    /* border: 1px solid rgb(123,1,123);  */
 }
 
 .menu li {
     display: inline-block; 
-    border: 1px dotted blueviolet;
+    margin: 0 1em; 
+    /* border: 1px dotted blueviolet; */
 }
 
 .menu li a{
-    height: inherit; 
-    color: black; 
+    color: rgb(0,0,0); 
     text-align: center; 
-    padding: 10px 14px; 
     text-decoration: none;
 }
 
 .menu li a:hover {
-    color: white; 
-    background-color: black; 
+    color: rgb(255,255,255); 
+    background-color: rgb(0,0,0); 
+}
+
+.container {
+    display: flex; 
+    flex-direction: row;
+    width: inherit;
+    height: 5em;
+    padding: 0 5rem; 
+    border: 1px solid rgb(0,0,0); 
+}
+
+.container p {
+    height: 3em;
+    width: 10em;
+    /* float: left;  */
+    background-color: bisque;
+    margin: 1em; 
+}
+
+.container p:last-of-type {
+    /* float: right;  */
+    margin-left: auto; 
+}
+
+footer {
+    border-top : 2px solid rgb(39, 39, 39);
 }
