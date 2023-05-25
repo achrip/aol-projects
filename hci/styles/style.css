@@ -88,5 +88,21 @@ div {
 }
 
 footer {
+    height: 5em; 
+    align-items: center;
+    display: flex; 
+    flex-direction: column-reverse;
     border-top : 2px solid rgb(39, 39, 39);
+}
+
+footer p {
+    margin-top: 1ex;
+    background-color: bisque;
+    border: 2px solid rgb(0,0,0); 
+}
+
+#links {
+    width: 70%;
+    display: flex; 
+    justify-content: space-between;
 }
