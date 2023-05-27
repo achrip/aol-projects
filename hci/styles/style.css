@@ -1,98 +1,164 @@
-html {
-    box-sizing: border-box;
-}
-
-*, *::before, *::after {
-    padding: 0; 
-    margin: 0; 
-    box-sizing: inherit;
-}
-
-div {
-    border: 1px solid rgb(245, 68, 68);
-}
-
-.wrapper {
-    max-width: 1440px;
-    margin: 0 auto; 
-}
-
-.navbar {
-    overflow: hidden;
-    margin: 0; 
-    padding: 0; 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 5rem;  
-    /* border: 2px solid rgb(0,0,0); */
-}
-
-.logo {
-
-    /* display: inline-flex;  */
-    margin-bottom: auto;
-    /* border: 1px solid rgb(100,100, 100); */
-}
-
-.profile {
-    display: inline-flex;
-    margin-bottom: auto;
-    border: 1px solid rgb(100,100, 100);
-}
-
-.menu {
-    list-style: none;
-    /* margin-bottom: auto; */
-    align-items: center;
-    /* border: 1px solid rgb(123,1,123);  */
-}
-
-.menu li {
-    display: inline-block; 
-    margin: 0 1em; 
-    /* border: 1px dotted blueviolet; */
-}
-
-.menu li a{
-    color: rgb(0,0,0); 
-    text-align: center; 
-    text-decoration: none;
-}
-
-.menu li a:hover {
-    color: rgb(255,255,255); 
-    background-color: rgb(0,0,0); 
-}
-
+/* 
 .container {
-    display: flex; 
-    flex-direction: row;
-    width: inherit;
-    height: 5em;
-    padding: 0 5rem; 
+    width: 100%;
+    height: 10em;
+    padding: 10px; 
     border: 1px solid rgb(0,0,0); 
 }
 
 .container p {
-    height: 3em;
-    width: 10em;
-    /* float: left;  */
+    height: 100%;
+    width: 47%;
+    float: left; 
     background-color: bisque;
-    margin: 1em; 
+    margin-right: 6%; 
 }
 
-.container p:last-of-type {
-    /* float: right;  */
-    margin-left: auto; 
+.container p:last-child {
+    margin-right: 0;
+} */
+html {
+    box-sizing: border-box;
 }
+
+*,
+*::before, 
+*::after {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: inherit;
+}
+
+#site-wrapper {
+    display: flex; 
+    flex-direction: column;
+    min-width: 100vh;
+    background-color: darkgray;
+}
+
+.content-container {
+    margin: 0 auto; 
+    position: relative; 
+    display: block;
+    overflow: hidden;
+}
+
+.section-wrapper {
+    display: flex; 
+    overflow: hidden;
+    align-items: center;
+}
+
+.section-wrapper:last-child {
+    flex-direction: column;
+}
+
+/* 
+    ######################################################################################################
+    ██   ██ ███████  █████  ██████  ███████ ██████      ███████ ████████ ██    ██ ██      ███████ ███████ 
+    ██   ██ ██      ██   ██ ██   ██ ██      ██   ██     ██         ██     ██  ██  ██      ██      ██      
+    ███████ █████   ███████ ██   ██ █████   ██████      ███████    ██      ████   ██      █████   ███████ 
+    ██   ██ ██      ██   ██ ██   ██ ██      ██   ██          ██    ██       ██    ██      ██           ██ 
+    ██   ██ ███████ ██   ██ ██████  ███████ ██   ██     ███████    ██       ██    ███████ ███████ ███████ 
+    ######################################################################################################
+*/
+
+header {
+    position: absolute;
+    height: 0;
+    width: 100%; 
+    padding: 30vh; 
+    background-color: antiquewhite;
+}
+
+header iframe {
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 190vh;
+    height: 100vh;
+    object-fit: fill;
+    inset: -21vh -6.5vh; 
+}
+
+#navbar {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 60%;
+    height: 10%; 
+    justify-content: space-between;  
+    margin: 1% 20%; 
+    padding: 0 2em; 
+    z-index: 1;
+}
+
+.logo { 
+    margin-bottom: auto;
+}
+
+#profile {
+    display: inline-flex;
+    margin-bottom: auto;
+}
+
+#menu {
+    list-style: none;
+}
+
+#menu li {
+    display: inline-block; 
+    margin: 0 1em; 
+}
+
+#menu li a{
+    color: white; 
+    text-align: center; 
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    color: black; 
+    background-color: white; 
+}
+
+/* 
+        ######################################################################################
+        ███    ███  █████  ██ ███    ██     ███████ ████████ ██    ██ ██      ███████ ███████ 
+        ████  ████ ██   ██ ██ ████   ██     ██         ██     ██  ██  ██      ██      ██      
+        ██ ████ ██ ███████ ██ ██ ██  ██     ███████    ██      ████   ██      █████   ███████ 
+        ██  ██  ██ ██   ██ ██ ██  ██ ██          ██    ██       ██    ██      ██           ██ 
+        ██      ██ ██   ██ ██ ██   ████     ███████    ██       ██    ███████ ███████ ███████
+        ###################################################################################### 
+*/
+
+main {
+    background-color: antiquewhite;
+}
+
+main p {
+    height: 5em;
+    width: 3em; 
+    border: 1px solid black;
+}
+
+/* 
+    #########################################################################################################
+
+    ███████  ██████   ██████  ████████ ███████ ██████      ███████ ████████ ██    ██ ██      ███████ ███████ 
+    ██      ██    ██ ██    ██    ██    ██      ██   ██     ██         ██     ██  ██  ██      ██      ██      
+    █████   ██    ██ ██    ██    ██    █████   ██████      ███████    ██      ████   ██      █████   ███████ 
+    ██      ██    ██ ██    ██    ██    ██      ██   ██          ██    ██       ██    ██      ██           ██ 
+    ██       ██████   ██████     ██    ███████ ██   ██     ███████    ██       ██    ███████ ███████ ███████ 
+
+    ######################################################################################################### 
+*/
 
 footer {
-    height: 5em; 
-    align-items: center;
-    display: flex; 
-    flex-direction: column-reverse;
-    border-top : 2px solid rgb(39, 39, 39);
+    width: 100%; 
+    height: 7vh; 
 }
 
 footer p {
