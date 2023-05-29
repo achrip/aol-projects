@@ -24,10 +24,9 @@ void tree_print(RBT *root);
 
 int main(void) {
     baseroot = node_insert(baseroot, node_init(12, 0)); 
-    printf("%s", baseroot->color); 
     baseroot = node_insert(baseroot, node_init(1, 1)); 
-    //root = node_insert(root, node_init(2, 2)); 
-    //root = node_insert(root, node_init(10,3)); 
+    baseroot = node_insert(baseroot, node_init(2, 2)); 
+    baseroot = node_insert(baseroot, node_init(10,3)); 
 
     tree_print(baseroot); 
     
@@ -52,13 +51,13 @@ RBT *node_insert(RBT *root, RBT *node) {
     if (node->key > root->key){
         root->right = node_insert(root->right, node); 
         root->right->parent = root; // maybe is equivalent to node->parent = root (?)g 
-        assert(root == tree_rotation(root->right)); 
+        //assert(root == tree_rotation(root->right)); 
         return (root->right->color == RED && root->color == RED) ? tree_rotation(root->right) : root; 
     }
     else if (node->key < root->key) {
         root->left = node_insert(root->left, node); 
         root->left->parent = root; // maybe is equivalent to node->parent = root (?)g 
-        assert(root == tree_rotation(root->left)); 
+        //assert(root == tree_rotation(root->left)); 
         return (root->left->color == RED && root->color == RED) ? tree_rotation(root->left) : root; 
     }
     return root; 
@@ -80,14 +79,57 @@ RBT *tree_rotation(RBT *node) {
 
         return tree_rotation(parent->parent); 
     } 
-    else if (parent == grandparent->left) {
-        
+    // from here on uncle is BLACK 
+    if (parent == grandparent->left) {
+        if (node == parent->left) {
+            //right rotation
+            return tree_rotate_right(grandparent); 
+        }
+        else {
+            //left-right rotation
+            parent = tree_rotate_left(parent);
+            return tree_rotate_right(grandparent); 
+        }
     }
     else {
-        
+        if (node == parent->right) {
+            //left rotation
+            return tree_rotate_left(grandparent); 
+        }
+        else {
+            //right-left rotation
+            parent = tree_rotate_right(parent);
+            return tree_rotate_left(grandparent);
+        }
     }
+}
 
-    return node; 
+RBT *tree_rotate_right(RBT *root) {
+    RBT *pivot = root->left; 
+    RBT *node = pivot->right; 
+
+    pivot->right = root; 
+    root->left = node; 
+    pivot->parent = root->parent; 
+    root->parent = pivot; 
+    root->color = RED; 
+    pivot->color = BLACK; 
+
+    return pivot; 
+}
+
+RBT *tree_rotate_left(RBT *root) {
+    RBT *pivot = root->right; 
+    RBT *node = pivot->left; 
+
+    pivot->left = root; 
+    root->right = node; 
+    pivot->parent = root->parent; 
+    root->parent = pivot; 
+    root->color = RED; 
+    pivot->color = BLACK; 
+
+    return pivot; 
 }
 
 void tree_print(RBT *root) {
