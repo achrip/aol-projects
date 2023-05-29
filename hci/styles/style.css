@@ -73,6 +73,7 @@ header {
     position: relative;
     height: calc(28rem + 1.9285vh);
     width: 100%; 
+    z-index: 1; 
     background-color: cyan;
 }
 .video-wrapper {
@@ -98,7 +99,7 @@ header {
     left: 0; 
     width: 60%;
     height: 10%; 
-    justify-content: space-between;  
+    justify-content: space-between;   
     margin: 3% 20%; 
     padding: 0 2em; 
     z-index: 1;
@@ -106,10 +107,14 @@ header {
 }
 
 .logo { 
+    height: 85px; 
+    width: 201px; 
     margin-bottom: auto;
 }
 
 #profile {
+    height: 85px; 
+    width: 85px; 
     display: inline-flex;
     margin-bottom: auto;
 }
@@ -131,8 +136,9 @@ header {
 
 #menu li a:hover {
     color: black; 
-    background-color: white; 
+    background-color: white;
 }
+
 
 /* 
         ######################################################################################
@@ -145,10 +151,12 @@ header {
 */
 
 main {
+    position: absolute; 
     width: 100%; 
     height: 200vh; /* must be specified further */ 
     padding-top: 30px; 
     background-color: antiquewhite;
+    z-index: 0; 
 }
 
 .section-divider {
@@ -166,10 +174,24 @@ main {
     position: relative; 
 }
 
-.content-wrapper div {
-    background-image: url(/images/harpoon.png);
+#title {
+    /* left: 50%; */
+    /* top: 35%; */
+    /* transform: translateX(-50%); */
+    object-fit: cover;
+    z-index: 1;
+}
+
+#title img {
+    height: 35vh; 
+    width: 75vh; 
+}
+
+.content-wrapper div.poster {
+    background-image: url(../images/image.jpg);
     background-size: cover;
-    /* background-position-y: 100px; */
+    /* background-position-y: -500px; */
+    /* background-repeat: no-repeat; */
     height: 100%; 
     width: 90%; 
     margin: 0 2%; 
