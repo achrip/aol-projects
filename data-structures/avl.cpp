@@ -2,6 +2,8 @@
 #include <cstring>
 #include <cstdio>
 
+void clear() { printf("\e[1;1H\e[2J"); }
+
 struct Tree {
     int value, height, bf; 
     Tree *left, *right; 
@@ -82,7 +84,7 @@ Tree *rotate(Tree *root) {
     return root; 
 }
 
-bool search(Tree *root, int value) {
+bool search(Tree *root, int value) {    //still don't know why i can't use guard clause here :v
     if (root) {
         if (root->value == value) 
             return true; 
@@ -166,16 +168,17 @@ void postOrder(Tree *root) {
 
 int main() {
     Tree *root = NULL; 
-    int tobeInserted[] = {6, 27, 19, 11, 36, 14, 81, 63, 75}; 
-    int tobeErased[] = {14, 75, 36, 19, 11}; 
+    // int tobeInserted[] = {6, 27, 19, 11, 36, 14, 81, 63, 75}; 
+    // int tobeErased[] = {14, 75, 36, 19, 11}; 
 
-    for (int i = 0; i < 9; ++i) 
-        root = insert(root, construct(tobeInserted[i]));  
-    for (int i = 0; i < 5; ++i) 
-        root = remove(root, tobeErased[i]);  
+    // for (int i = 0; i < 9; ++i) 
+    //     root = insert(root, construct(tobeInserted[i]));  
+    // for (int i = 0; i < 5; ++i) 
+    //     root = remove(root, tobeErased[i]);  
 
     while (1) {
-        puts("\n\n1. Insertion\n2. Deletion\n3. Traversal\n4. Exit"); 
+        clear(); 
+        puts("\n1. Insertion\n2. Deletion\n3. Traversal\n4. Exit"); 
         printf("Choose: "); 
 
         int opt, in; 
@@ -203,7 +206,13 @@ int main() {
                     puts("Data Not Found"); 
 
                 break; 
-            case 3: 
+            case 3:
+                if (!root) {
+                    puts("\nTree is empty!\nPress enter to continue."); 
+                    getchar(); 
+                    break; 
+                } 
+                
                 printf("Preorder: "); 
                 preOrder(root);
                 puts("");
@@ -216,6 +225,8 @@ int main() {
                 postOrder(root);
                 puts("");
 
+                puts("Press enter to continue. "); 
+                getchar();
                 break; 
             case 4: 
                 puts("Thank you"); 

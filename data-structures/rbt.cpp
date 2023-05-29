@@ -10,6 +10,8 @@ struct RBT {
     Colors color; 
 };
 
+RBT *baseroot; 
+
 RBT *node_init(int key, int value); 
 RBT *node_insert(RBT *root, RBT *node); 
 RBT *node_delete(int key); 
@@ -21,13 +23,13 @@ bool *node_search(int key);
 void tree_print(RBT *root); 
 
 int main(void) {
-    RBT *root = NULL; 
-    root = node_insert(root, node_init(12, 0)); 
-    root = node_insert(root, node_init(1, 1)); 
+    baseroot = node_insert(baseroot, node_init(12, 0)); 
+    printf("%s", baseroot->color); 
+    baseroot = node_insert(baseroot, node_init(1, 1)); 
     //root = node_insert(root, node_init(2, 2)); 
     //root = node_insert(root, node_init(10,3)); 
 
-    tree_print(root); 
+    tree_print(baseroot); 
     
     return 0; 
 }
@@ -46,32 +48,46 @@ RBT *node_init(int key, int value) {
 RBT *node_insert(RBT *root, RBT *node) {
     if (!root) return node; 
 
-    assert(root->parent != NULL); 
+    // assert(root->parent != NULL); 
     if (node->key > root->key){
         root->right = node_insert(root->right, node); 
         root->right->parent = root; // maybe is equivalent to node->parent = root (?)g 
         assert(root == tree_rotation(root->right)); 
-        return tree_rotation(root->right); 
+        return (root->right->color == RED && root->color == RED) ? tree_rotation(root->right) : root; 
     }
     else if (node->key < root->key) {
         root->left = node_insert(root->left, node); 
         root->left->parent = root; // maybe is equivalent to node->parent = root (?)g 
         assert(root == tree_rotation(root->left)); 
-        return tree_rotation(root->left); 
+        return (root->left->color == RED && root->color == RED) ? tree_rotation(root->left) : root; 
     }
     return root; 
 }
 
 RBT *tree_rotation(RBT *node) {
     assert(node != NULL); 
-    if (node->color != node->parent->color) return node;
 
-    RBT *gparent = node->parent->parent; 
-    if (gparent->left->color == gparent->right->color) {
-        // colorize the two
-        return node->parent;
+    RBT *parent = node->parent; 
+    RBT *grandparent = parent->parent; 
+    if (grandparent == parent && parent->color == RED) {
+        parent->color = BLACK; 
+        return node; 
+    } 
+
+    RBT *uncle = (parent == grandparent->left) ? grandparent->left : grandparent->right; 
+    if (uncle && uncle->color == RED) {
+        uncle->color = parent->color = BLACK; 
+
+        return tree_rotation(parent->parent); 
+    } 
+    else if (parent == grandparent->left) {
+        
     }
-    return node->parent; 
+    else {
+        
+    }
+
+    return node; 
 }
 
 void tree_print(RBT *root) {
