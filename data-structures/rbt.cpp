@@ -11,7 +11,7 @@ struct RBT {
 };
 
 RBT *baseroot = NULL; 
-RBT *node_init(int key, int value); 
+RBT *node_init(int value); 
 RBT *node_insert(RBT *root, RBT *node, RBT *parent); 
 RBT *node_delete(int key); 
 RBT *tree_rotate_left(RBT *node); 
@@ -23,11 +23,11 @@ void tree_print(RBT *root);
 
 int main(void) {
     
-    baseroot = node_insert(baseroot, node_init(12,0), baseroot); 
-    baseroot = node_insert(baseroot, node_init(1, 1), baseroot);
-    RBT *rbt = node_init(10, 3);
-    baseroot = node_insert(baseroot, node_init(2, 2), baseroot); 
-    baseroot = node_insert(baseroot, node_init(19,3), baseroot); 
+    baseroot = node_insert(baseroot, node_init(12), baseroot); 
+    baseroot = node_insert(baseroot, node_init(1), baseroot);
+    RBT *rbt = node_init(10);
+    baseroot = node_insert(baseroot, node_init(2), baseroot); 
+    baseroot = node_insert(baseroot, node_init(19), baseroot); 
     baseroot = node_insert(baseroot, rbt, baseroot); 
 
     tree_print(baseroot); 
@@ -35,10 +35,9 @@ int main(void) {
     return 0; 
 }
 
-RBT *node_init(int key, int value) {
+RBT *node_init(int value) {
     RBT *r = (RBT*)malloc(sizeof(RBT)); 
     r->value = value; 
-    r->key = key; 
     r->left = r->right = NULL; 
     r->parent = r; 
     r->color = RED; 
@@ -53,11 +52,11 @@ RBT *node_insert(RBT *root, RBT *node, RBT *parent) {
     }
 
     assert(root != NULL); 
-    if (node->key > root->key){
+    if (node->value > root->value){
         root->right = node_insert(root->right, node, root); 
         return tree_rotation(root->right); 
     }
-    else if (node->key < root->key) {
+    else if (node->value < root->value) {
         root->left = node_insert(root->left, node, root);
         return tree_rotation(root->left); 
     }
@@ -145,7 +144,7 @@ void tree_print(RBT *root) {
     if (!root) return ; 
 
     tree_print(root->left);
-    printf("[key: %d, val: %d]--", root->key, root->value); 
+    printf("%d -> ", root->value); 
     tree_print(root->right);
 }
 
