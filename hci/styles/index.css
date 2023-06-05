@@ -17,8 +17,16 @@
 .container p:last-child {
     margin-right: 0;
 } */
+:root {
+    --gradient: linear-gradient(,
+        rgb(60, 209, 250),
+        rgb(63, 217, 191));
+    --white: #f0f0f0;
+}
+
 html {
     box-sizing: border-box;
+    font-family: JetBrainsMono Nerd Font, sans serif;
 }
 
 *,
@@ -29,12 +37,25 @@ html {
     box-sizing: inherit;
 }
 
-#site-wrapper {
-    display: flex; 
-    flex-direction: column;
-    min-width: 100vh;
-    background-color: darkgray;
+@media screen and (min-width: 1080px) {
+
+    #site-wrapper {
+        display: flex; 
+        flex-direction: column;
+        min-width: 100vh;
+        background-color: darkgray; 
+    }
 }
+
+@media screen and (max-width: 810px) {
+    #site-wrapper {
+        display: flex; 
+        flex-direction: column;
+        max-width: 100svw;
+        background-color: antiquewhite;
+    }
+}
+
 
 .content-container {
     margin: 0 auto; 
@@ -51,7 +72,7 @@ html {
 
 .section-wrapper:last-child {
     flex-direction: column;
-    padding-top: 3%; 
+    padding-top: 3ex; 
 }
 
 #test {
@@ -71,10 +92,10 @@ html {
 
 header {
     position: relative;
-    height: calc(28rem + 1.9285vh);
+    height: calc(48rem + 1.9285vh);
     width: 100%; 
     z-index: 1; 
-    background-color: cyan;
+    background-color: antiquewhite;
 }
 .video-wrapper {
     position: absolute; 
@@ -83,7 +104,7 @@ header {
     width: 100%;
 }
 
-.video-wrapper iframe {
+.video-wrapper video {
     overflow: hidden;
     pointer-events: none;
     position: absolute; 
@@ -98,12 +119,13 @@ header {
     top: 0; 
     left: 0; 
     width: 60%;
-    height: 10%; 
+    height: 9%; 
     justify-content: space-between;   
     margin: 3% 20%; 
     padding: 0 2em; 
     z-index: 1;
-    background-color: grey;
+    background-color: rgb(8, 33, 54);
+    border-radius: 10px;
 }
 
 .logo { 
@@ -113,30 +135,61 @@ header {
 }
 
 #profile {
-    height: 85px; 
-    width: 85px; 
+    height: 40px; 
+    width: 46px; 
+    margin-left: 5rem; 
+    margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
 }
 
 #menu {
+    height: 100%; 
+    width: 50%;
     list-style: none;
+    display: flex; 
+    align-items: center;
 }
 
 #menu li {
-    display: inline-block; 
-    margin: 0 1em; 
+    display: block; 
+    width: 100%;
+    height: 90%;
+    border-left: 2px solid #0a4779;
+}
+
+#menu li:last-of-type {
+    border-right: 2px solid #0a4779;
 }
 
 #menu li a{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 0 .5rem; 
+    width: 100%;
+    height: 100%;
     color: white; 
-    text-align: center; 
     text-decoration: none;
+    font-size: 18px;
 }
 
-#menu li a:hover {
-    color: black; 
-    background-color: white;
+#menu li:hover{
+    background-image: linear-gradient(rgb(60, 209, 250),rgb(63, 217, 191)); 
+}
+
+#title {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    z-index: 3;
+}
+
+#title img {
+    height: 35vh;
+    width: 75vh;
 }
 
 
@@ -153,7 +206,7 @@ header {
 main {
     position: absolute; 
     width: 100%; 
-    height: 200vh; /* must be specified further */ 
+    height: 230svh; 
     padding-top: 30px; 
     background-color: antiquewhite;
     z-index: 0; 
@@ -161,41 +214,136 @@ main {
 
 .section-divider {
     width: 100%; 
-    height: 350px; /* formula is: .content-container:height / rows */
+    height: fit-content;
     padding: 1ex; 
+    position: relative;
 }
 
 .content-wrapper {
     width: 1200px; 
-    height: 300px; 
-    margin: 1em auto; 
+    height: 100%; 
+    margin: 1rem auto; 
+    padding: 1rem; 
     display: flex; 
     flex-direction: row; 
+    position: relative;
+    background-color: cornsilk; 
+}
+
+.poster {
+    position: relative;
+    background-size: cover;
+    height: auto; 
+    max-width: 90%;
+    margin: 0 2%; 
+    text-align: justify;
+}
+
+.poster h1 {
+    margin-top: 2rem; 
+    margin-bottom: 1rem;
+    font-size: 26px;
+}
+
+.section-divider:first-of-type{
+    width: 1200px; 
+    height: 450px; 
+    margin: 1em auto; 
+}
+
+@media only screen and (min-width: 1080px) {
+
+    .section-divider:nth-of-type(odd) .poster h1{
+        direction: rtl;
+    }
+
+    .section-divider:nth-of-type(odd) .content-wrapper{
+        flex-direction: row-reverse;
+    }
+}
+
+
+#character-poster img{ 
+    position: absolute;
+    top: -15%; 
+    left: 50%;  
+    transform: translateX(-50%); 
+    max-width: 80%;
+    max-height: max-content;
+}
+
+.slideshow-container {
+    max-width: 100%;
+    margin: auto; 
     position: relative; 
 }
 
-#title {
-    /* left: 50%; */
-    /* top: 35%; */
-    /* transform: translateX(-50%); */
-    object-fit: cover;
-    z-index: 1;
+.slides0, 
+.slides1, 
+.slides2,
+.slides3 {
+    display: none; 
 }
 
-#title img {
-    height: 35vh; 
-    width: 75vh; 
+.prev, 
+.next {
+    cursor: pointer;
+    position: absolute; 
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
 
-.content-wrapper div.poster {
-    background-image: url(../images/image.jpg);
-    background-size: cover;
-    /* background-position-y: -500px; */
-    /* background-repeat: no-repeat; */
-    height: 100%; 
-    width: 90%; 
-    margin: 0 2%; 
-    background-color: aquamarine; 
+.next {
+    right: 0; 
+    border-radius: 3px 0  0 3px;
+}
+
+.prev:hover, 
+.next:hover {
+    color: #000;
+    background-color: cornsilk;
+}
+
+@media screen and (max-width: 810px) {
+    header {
+        display: none !important; 
+    }
+
+    main{
+        top: 0;
+        left: 0; 
+        width: 100svw;
+        height: fit-content; 
+    }
+
+    .content-wrapper {
+        max-width: 95%;
+        flex-direction: column;
+    }
+
+    .section-divider:first-of-type{
+        width: 95%; 
+        height: 250px; 
+        margin: 1em auto; 
+    }
+
+
+    .poster h1 {
+        direction: ltr; 
+
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+
 }
 
 /* 
@@ -213,17 +361,20 @@ main {
 footer {
     position: relative; 
     width: 100%; 
-    height: 10vh; 
-}
-
-footer p {
-    margin-top: 1ex;
-    background-color: bisque;
-    border: 2px solid rgb(0,0,0); 
+    height: 10vh;
+    color: white;
+    background-color: #131b21;
 }
 
 #links {
     width: 70%;
     display: flex; 
+    padding-bottom: 1rem; 
     justify-content: space-between;
 }
+
+/* @media only screen  (max-width:810px) {
+    footer {
+        display: none !important; 
+    }
+} */

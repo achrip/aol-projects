@@ -6,60 +6,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv="refresh" content="1" /> -->
     <title>Sea of Ftars</title>
-    <link rel="icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
     <div id="site-wrapper">
         <header class="content-container">
             <div id="navbar" class="section-wrapper">
-                <a href="index.html"><img src="./images/img-logo-sos-anim-2x.png" alt="logo" class="logo"></a>
+                <a href="index.html"><img src="./assets/img-logo-sos-anim-2x.png" alt="logo" class="logo"></a>
                 <ul id="menu">
                     <li><a href="./pages/community.html">COMMUNITY</a></li>
                     <li><a href="#">HOME</a></li>
                     <li><a href="./pages/characters.html">CHARACTERS</a></li>
                 </ul>
-                <a href="#"><img src="./images/icon.png" alt="profile" id="profile"></a>
+                <a href="#"><img src="./assets/icon.png" alt="profile" id="profile"></a>
             </div>
             <div class="video-wrapper">
-                <iframe id="promo-video" 
-                    src="https://www.youtube-nocookie.com/embed/w7i4amO_zaE?mute=1&autoplay=1&enablejsapi=1&controls=0&modestbranding=1&rel=0" 
+                <!-- <iframe id="promo-video" 
+                    src="./assets/sos-galaxy-website-reel.mp4" 
                     title="Sea of Ftars Promo Video" 
                     frameborder="0"  
                     allowfullscreen="1">
-                </iframe>
-            </div>
+                </iframe> -->
+                <video id="promo-video" 
+                src="./assets/sos-galaxy-website-reel.mp4"
+                muted autoplay loop>
+            </video>
+        </div>
+        <div id="title">
+            <!-- <img src="./assets/title-alt.png" alt="SoS"> -->
+            <img src="./assets/sea-of-stars-header.png" alt="SoS">
+        </div>
         </header>
 
         <main class="content-container">
             <div class="section-divider">
+                <div class="content-wrapper" id="character-poster"><img src="./assets/img-characters-art-2@2x.png" alt="characters in a group"></div>
+            </div>
+            <div class="section-divider">
                 <div class="content-wrapper">
-                    <div id="title">
-                        <img src="./images/sea-of-stars-header.png" alt="">
+                    <div class="poster">
+                        <div class="slideshow-container">
+                            <div class="slides0"><img src="./assets/Combat-1.png" alt="Combat-1"></div>
+                            <div class="slides0"><img src="./assets/Combat-2.png" alt="Combat-2"></div>
+                            <div class="slides0"><img src="./assets/Combat-3.png" alt="Combat-3"></div>
+                            <div class="slides0"><img src="./assets/Combat-4.png" alt="Combat-4"></div>
+                            <div class="slides0"><img src="./assets/Combat-5.png" alt="Combat-5"></div>
+                            <a class="prev" id="prev0">&#10094;</a>
+                            <a class="next" id="next0">&#10095;</a>
+                        </div>
+                    </div>
+                    <div class="poster">
+                        <h1>Engaging Turn-Based Combat</h1>
+                        <p>Pressing the action button in sync with the animations increases damage output while reducing incoming damage. Along with timed hits, combat features multi-character combo attacks, boosting, and a strategic « locks » system offering options to play with different damage types in order to hinder enemies while they are channeling powerful attacks or spells, all in an immersive take on the genre; no random encounters, no transitions to separate battlefields, and no grinding.</p>
                     </div>
                 </div>
             </div>
             <div class="section-divider">
                 <div class="content-wrapper">
-                    <div class="poster"></div>
-                    <div>
-                        <h1>HI HEADER!</h1>
+                    <div class="poster">
+                        <div class="slideshow-container">
+                            <div class="slides1"><img src="./assets/Traversal-1.png" alt="Traversal-1"></div>
+                            <div class="slides1"><img src="./assets/Traversal-2.png" alt="Traversal-2"></div>
+                            <div class="slides1"><img src="./assets/Traversal-3.png" alt="Traversal-3"></div>
+                            <div class="slides1"><img src="./assets/Traversal-4.png" alt="Traversal-4"></div>
+                            <div class="slides1"><img src="./assets/Traversal-5.png" alt="Traversal-5"></div>
+                            <a class="prev" id="prev1">&#10094;</a>
+                            <a class="next" id="next1">&#10095;</a>
+                        </div>
+                    </div>
+                    <div class="poster">
+                        <h1>Unshackled Traversal</h1>
+                        <p>Swim, climb, vault, jump off or hoist up ledges as you traverse seamlessly through the world with a navigation system based on platformer expertise that breaks free from the classic bound-to-the-grid tileset movement.</p>
                     </div>
                 </div>
             </div>
             <div class="section-divider">
                 <div class="content-wrapper">
-                    <div>
-                        <h1>HI HEADER!</h1>
+                    <div class="poster">
+                        <div class="slideshow-container">
+                            <div class="slides2"><img src="./assets/story-1.png" alt="story-1"></div>
+                            <div class="slides2"><img src="./assets/story-2.png" alt="story-2"></div>
+                            <div class="slides2"><img src="./assets/story-3.png" alt="story-3"></div>
+                            <div class="slides2"><img src="./assets/story-4.png" alt="story-4"></div>
+                            <div class="slides2"><img src="./assets/story-5.png" alt="story-5"></div>
+                            <a class="prev" id="prev2">&#10094;</a>
+                            <a class="next" id="next2">&#10095;</a>
+                        </div>
+                        
                     </div>
-                    <div class="poster"></div>
+                    <div class="poster">
+                        <h1>A story rich adventure</h1>
+                        <p>Dozens of original characters and story arcs will take you on a captivating journey. Sometimes epic, sometimes silly, and other times emotional, Sea of Stars does its RPG duty of exploring classic themes of adventure and friendship, while also being chock-full of the unexpected twists and events you’d expect from a Sabotage production.</p>
+                    </div>
                 </div>
             </div>
             <div class="section-divider">
                 <div class="content-wrapper">
-                    <div class="poster"></div>
-                    <div>
-                        <h1>HI HEADER</h1>
+                    <div class="poster">
+                        <div class="slideshow-container">
+                            <div class="slides3"><img src="./assets/World-6.png" alt="World-1"></div>
+                            <div class="slides3"><img src="./assets/World-2.png" alt="World-2"></div>
+                            <div class="slides3"><img src="./assets/World-8.png" alt="World-3"></div>
+                            <div class="slides3"><img src="./assets/World-4.png" alt="World-4"></div>
+                            <div class="slides3"><img src="./assets/World-5.png" alt="World-5"></div>
+                            <a class="prev" id="prev3">&#10094;</a>
+                            <a class="next" id="next3">&#10095;</a>
+                        </div>
+                    </div>
+                    <div class="poster">
+                        <h1>A world you can touch</h1>
+                        <p>There are many ways to hang out in the world of Sea of Stars if you feel the need for a change of pace in your adventures. Sailing, cooking, fishing, stopping by a tavern to listen to a song or play the infamous tabletop game known as « Wheels »…..every system has been designed to deliver an experience that pays respect to retro classics, while rethinking in some areas to offer a smooth and modernized experience.</p>
                     </div>
                 </div>
             </div>
@@ -73,9 +130,10 @@
                    <img src="#" alt="Blog">
                    <img src="#" alt="Twitter">
                 </div>
-                <p>this is content paragraphCopyright 2023 by Ashraf Alif</p>    
+                <p>Copyright 2023 by Ashraf Alif</p>    
            </div>
         </footer>
     </div>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

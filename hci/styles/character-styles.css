@@ -1,4 +1,3 @@
-
 /* 
 .container {
     width: 100%;
@@ -18,8 +17,17 @@
 .container p:last-child {
     margin-right: 0;
 } */
+:root {
+    --gradient: linear-gradient(,
+        rgb(60, 209, 250),
+        rgb(63, 217, 191));
+    --white: #fffaf4;
+    --tan: #f7f1e5;
+}
+
 html {
     box-sizing: border-box;
+    font-family: JetBrainsMono Nerd Font, sans serif;
 }
 
 *,
@@ -34,7 +42,7 @@ html {
     display: flex; 
     flex-direction: column;
     min-width: 100vh;
-    background-color: darkgray;
+    background-color: darkgray; 
 }
 
 .content-container {
@@ -52,9 +60,14 @@ html {
 
 .section-wrapper:last-child {
     flex-direction: column;
-    padding-top: 3%; 
+    padding-top: 3ex; 
 }
 
+#test {
+    font-size: 60px;
+    background-color: aliceblue;
+    position: absolute; /* dimana top = 0 dan left = 0*/
+}
 /* 
     ######################################################################################################
     ██   ██ ███████  █████  ██████  ███████ ██████      ███████ ████████ ██    ██ ██      ███████ ███████ 
@@ -66,23 +79,11 @@ html {
 */
 
 header {
-    position: absolute;
-    height: 0;
+    position: relative;
+    height: calc(8rem + 1.9285vh);
     width: 100%; 
-    padding: 30vh; 
+    z-index: 1; 
     background-color: antiquewhite;
-}
-
-header iframe {
-    overflow: hidden;
-    pointer-events: none;
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 190vh;
-    height: 100vh;
-    object-fit: fill;
-    inset: -21vh -6.5vh; 
 }
 
 #navbar {
@@ -90,41 +91,79 @@ header iframe {
     top: 0; 
     left: 0; 
     width: 60%;
-    height: 10%; 
-    justify-content: space-between;  
-    margin: 1% 20%; 
+    height: 70px; 
+    justify-content: space-between;   
+    margin: 3% 20%; 
     padding: 0 2em; 
     z-index: 1;
+    background-color: rgb(8, 33, 54);
+    border-radius: 10px;
 }
 
 .logo { 
+    height: 85px; 
+    width: 201px; 
     margin-bottom: auto;
 }
 
 #profile {
+    height: 40px; 
+    width: 46px; 
+    margin-left: 5rem; 
+    margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
 }
 
 #menu {
+    height: 100%; 
+    width: 50%;
     list-style: none;
+    display: flex; 
+    align-items: center;
 }
 
 #menu li {
-    display: inline-block; 
-    margin: 0 1em; 
+    display: block; 
+    width: 100%;
+    height: 90%;
+    border-left: 2px solid #0a4779;
+}
+
+#menu li:last-of-type {
+    border-right: 2px solid #0a4779;
 }
 
 #menu li a{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 0 .5rem; 
+    width: 100%;
+    height: 100%;
     color: white; 
-    text-align: center; 
     text-decoration: none;
+    font-size: 18px;
 }
 
-#menu li a:hover {
-    color: black; 
-    background-color: white; 
+#menu li:hover{
+    background-image: linear-gradient(rgb(60, 209, 250),rgb(63, 217, 191)); 
 }
+
+#title {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    z-index: 3;
+}
+
+#title img {
+    height: 35vh;
+    width: 75vh;
+}
+
 
 /* 
         ######################################################################################
@@ -133,37 +172,60 @@ header iframe {
         ██ ████ ██ ███████ ██ ██ ██  ██     ███████    ██      ████   ██      █████   ███████ 
         ██  ██  ██ ██   ██ ██ ██  ██ ██          ██    ██       ██    ██      ██           ██ 
         ██      ██ ██   ██ ██ ██   ████     ███████    ██       ██    ███████ ███████ ███████
-        ###################################################################################### 
+        ######################################################################################
 */
 
-main.content-container {
-    width: 100vw; 
-    height: 100vh; /* must be specified further */ 
-    padding-top: 30px; 
-    background-color: antiquewhite;
-}
-
-.section-divider {
+main {
+    position: absolute; 
     width: 100%; 
-    height: 33%; /* formula is: .content-container:height / rows */
-    padding: 1ex; 
+    height: 100svh; /* must be specified further */ 
+    margin-top: 3rem; 
+    background-color: antiquewhite;
+    z-index: 0; 
 }
+/* 
+main .section-wrapper {
+    padding-top: 3rem; 
+} */
 
-.content-wrapper {
-    width: 80%; 
-    height: 90%; 
-    margin: 0 auto; 
+.content-wrapper { 
+    width: 1000px; 
+    height: 80svh; 
+    margin: 3rem auto; 
+    padding: 1rem; 
+    background-color: cornsilk; 
     display: flex; 
-    flex-direction: row; 
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
-.content-wrapper div {
-    height: 100%; 
-    width: 90%; 
-    margin: 0 5%; 
-    background-color: aquamarine; 
+.content-wrapper h1 {
+    position: absolute;
+    margin: 2rem 0; 
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+.characters {
+    padding: 2rem;
+    margin: 0 1rem; 
+    max-width: 25%;
+    flex: 25%; 
+    border: 2px solid #d8d1c4; 
+    transition: .3s ease;
+}
+
+.characters img {
+    vertical-align: middle;
+    width: 100%
+}
+
+.characters:hover {
+    background-color: var(--tan);
+    transform: scale(1.1);
+}
 /* 
     #########################################################################################################
 
@@ -179,17 +241,14 @@ main.content-container {
 footer {
     position: relative; 
     width: 100%; 
-    height: 10vh; 
-}
-
-footer p {
-    margin-top: 1ex;
-    background-color: bisque;
-    border: 2px solid rgb(0,0,0); 
+    height: 10vh;
+    color: white;
+    background-color: #0a4779;
 }
 
 #links {
     width: 70%;
     display: flex; 
+    padding-bottom: 1rem; 
     justify-content: space-between;
 }
