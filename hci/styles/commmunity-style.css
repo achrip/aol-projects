@@ -179,7 +179,7 @@ header {
 main {
     position: absolute; 
     width: 100%; 
-    height: 230svh; /* must be specified further */ 
+    height: fit-content; /* must be specified further */ 
     /* background-color: antiquewhite; */
     background-image: url(https://seaofstarsgame.co/assets/dist/images/bg-pattern-sky-lg.png);
     background-size: cover;
