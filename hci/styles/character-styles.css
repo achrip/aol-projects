@@ -41,7 +41,7 @@ html {
 #site-wrapper {
     display: flex; 
     flex-direction: column;
-    min-width: 100vh;
+    min-width: 100dvw;
     background-color: darkgray; 
 }
 
@@ -87,23 +87,28 @@ header {
 }
 
 #navbar {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 60%;
-    height: 70px; 
+    position: fixed;
+    top: .5rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 80%;
+    height: 8%; 
     justify-content: space-between;   
-    margin: 3% 20%; 
     padding: 0 2em; 
-    z-index: 1;
+    z-index: 9;
     background-color: rgb(8, 33, 54);
     border-radius: 10px;
+
+    -webkit-box-shadow:0 0 10px rgb(60, 209, 250); 
+    -moz-box-shadow: 0 0 10px rgb(60, 209, 250); 
+    box-shadow:0 0 10px rgb(60, 209, 250)   ;
 }
 
 .logo { 
     height: 85px; 
-    width: 201px; 
-    margin-bottom: auto;
+    width: 201px;
+    margin: 0 0 auto 2rem; 
+    transform: scale(1.25);
 }
 
 #profile {
@@ -113,6 +118,7 @@ header {
     margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
+    transform: scale(1.35);
 }
 
 #menu {
@@ -143,7 +149,7 @@ header {
     height: 100%;
     color: white; 
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #menu li:hover{
@@ -189,15 +195,16 @@ main .section-wrapper {
 } */
 
 .content-wrapper { 
-    width: 1000px; 
-    height: 80svh; 
+    width: 50dvw; 
+    /* width: 80%; */
+    height: fit-content; 
     margin: 3rem auto; 
     padding: 1rem; 
     background-color: cornsilk; 
     display: flex; 
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .content-wrapper h1 {
@@ -206,14 +213,13 @@ main .section-wrapper {
     top: 0; 
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
 }
 
 .characters {
-    padding: 2rem;
-    margin: 0 1rem; 
+    margin: 2rem 1rem; 
     max-width: 25%;
     flex: 25%; 
-    border: 2px solid #d8d1c4; 
     transition: .3s ease;
 }
 
@@ -226,6 +232,33 @@ main .section-wrapper {
     background-color: var(--tan);
     transform: scale(1.1);
 }
+
+@media only screen and (max-width: 840px) {
+    .content-wrapper h1 {
+        top: -3%; 
+    }
+
+    .characters {
+        margin: 1.5rem 1rem; 
+        max-width: 50%;
+        flex: 25%; 
+        transition: .3s ease;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .content-wrapper h1 {
+        top: -2%; 
+    }
+
+    .characters {
+        margin: .5rem 1rem; 
+        max-width: 100%;
+        flex: 50%; 
+        transition: .3s ease;
+    }
+}
+
 /* 
     #########################################################################################################
 

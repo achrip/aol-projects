@@ -83,27 +83,38 @@ header {
     height: calc(8rem + 1.9285vh);
     width: 100%; 
     z-index: 1; 
-    background-color: antiquewhite;
+    background-image: url(https://seaofstarsgame.co/assets/dist/images/bg-pattern-sky-lg.png);
+}
+
+main {
+    background-image: url(https://seaofstarsgame.co/assets/dist/images/bg-pattern-sky-lg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #navbar {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 60%;
-    height: 70px; 
+    position: fixed;
+    top: .5rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 80%;
+    height: 8%; 
     justify-content: space-between;   
-    margin: 3% 20%; 
     padding: 0 2em; 
-    z-index: 1;
+    z-index: 9;
     background-color: rgb(8, 33, 54);
     border-radius: 10px;
+
+    -webkit-box-shadow:0 0 10px rgb(60, 209, 250); 
+    -moz-box-shadow: 0 0 10px rgb(60, 209, 250); 
+    box-shadow:0 0 10px rgb(60, 209, 250)   ;
 }
 
 .logo { 
     height: 85px; 
-    width: 201px; 
-    margin-bottom: auto;
+    width: 201px;
+    margin: 0 0 auto 2rem; 
+    transform: scale(1.25);
 }
 
 #profile {
@@ -113,6 +124,7 @@ header {
     margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
+    transform: scale(1.35);
 }
 
 #menu {
@@ -143,7 +155,7 @@ header {
     height: 100%;
     color: white; 
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #menu li:hover{
@@ -175,26 +187,30 @@ main .section-wrapper {
 .content-wrapper { 
     position: relative; 
     width: 1000px; 
-    height: 120svh;  
+    height: fit-content;  
     margin: 3rem auto; 
     padding: 1rem; 
-    background-color: rgb(8, 33, 54);   
+    /* background-color: rgb(8, 33, 54);    */
     display: flex; 
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* box-shadow: 0 0 50rem  #f7f1e5 inset; */
+    box-shadow: 0 10px 50px #131b21;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    /* justify-content: center; */
 }
 
 .title {
     display: flex; 
     align-items: center;
-    justify-content: space-between;
-    max-width: 100%; 
+    max-width: 50%; 
     height: 25%;
     position: relative; 
-    top: 0; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    margin: 2rem 0; 
+    /* top: 0; 
+    left: 50%;  */
+    /* transform: scale(1.23);  */
 }
 
 .title img {
@@ -202,7 +218,7 @@ main .section-wrapper {
     height: auto; 
     aspect-ratio: inherit; 
     object-fit: contain;
-    transform: scale(.5); 
+    transform: scale(1.25); 
 }
 
 form {
@@ -211,7 +227,7 @@ form {
     width: 70%; 
 }
 
-form label {
+label {
     color : var(--white); 
 }
 
@@ -223,12 +239,38 @@ form label {
 
 .form-group input {
     outline: none; 
-    padding: .5rem; 
+    padding: .5rem 1rem; 
     height: 3rem; 
     border: 2px solid white; 
     border-radius: .3rem; 
+    font-size: 22px ;
 }
 
+a {
+    text-decoration: none;
+    color: rgb(60, 209, 250)
+}
+
+#signup-btn {
+    margin: 5rem 0; 
+    width: 60%; 
+    height: 5rem; 
+    font-family: inherit;
+    font-size: 32px;
+    border: none;
+    border-radius: 3px;
+    transition: 1s; 
+    color: white; 
+    background-image: linear-gradient(45deg, rgb(87, 33, 204), rgb(60, 209, 250),rgb(63, 217, 191));
+    background-size: 300% auto;
+    background-position: left;
+}
+
+#signup-btn:hover {
+    color: #131b21;   
+    background-position: right;
+    box-shadow: 0 0 10px #f7f1e5;
+}
 /* 
     #########################################################################################################
 
@@ -246,7 +288,7 @@ footer {
     width: 100%; 
     height: 10vh;
     color: white;
-    background-color: #0a4779;
+    background-color: #131b21;
 }
 
 #links {

@@ -40,7 +40,7 @@ html {
 #site-wrapper {
     display: flex; 
     flex-direction: column;
-    min-width: 100vh;
+    width: 100dvw;
     background-color: darkgray; 
 }
 
@@ -88,23 +88,28 @@ header {
 }
 
 #navbar {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 60%;
-    height: 70px; 
+    position: fixed;
+    top: .5rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 80%;
+    height: 8%; 
     justify-content: space-between;   
-    margin: 3% 20%; 
     padding: 0 2em; 
-    z-index: 1;
+    z-index: 9;
     background-color: rgb(8, 33, 54);
     border-radius: 10px;
+
+    -webkit-box-shadow:0 0 10px rgb(60, 209, 250); 
+    -moz-box-shadow: 0 0 10px rgb(60, 209, 250); 
+    box-shadow:0 0 10px rgb(60, 209, 250)   ;
 }
 
 .logo { 
     height: 85px; 
-    width: 201px; 
-    margin-bottom: auto;
+    width: 201px;
+    margin: 0 0 auto 2rem; 
+    transform: scale(1.25);
 }
 
 #profile {
@@ -114,6 +119,7 @@ header {
     margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
+    transform: scale(1.35);
 }
 
 #menu {
@@ -144,7 +150,7 @@ header {
     height: 100%;
     color: white; 
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #menu li:hover{
@@ -187,21 +193,31 @@ main {
     z-index: 0; 
 }
 
+/* .section-divider {
+    width: 100dvw; 
+    height: fit-content;
+    padding: 1ex; 
+    position: relative;
+    margin: 1rem auto; 
+} */
+
 
 .content-wrapper {
-    width: 1200px; 
-    /* height: 100%;  */
+    /* width: 1200px;  */
+    max-width: 80%;
+    height: 100%; 
     margin: 1rem auto; 
     padding: 1rem; 
     display: flex; 
     flex-direction: row; 
     flex-wrap: wrap;
     position: relative;
-    /* background-color: cornsilk;  */
+    align-items: center;
+    justify-content: center;
 
 }
 
-.image-wrapper {
+/* .image-wrapper {
     background-color: #0a4779;
     margin: 1rem; 
     padding: 1rem; 
@@ -217,7 +233,7 @@ main {
     max-height: 80%;
     aspect-ratio: inherit;
     object-fit: fill;
-}
+} */
 
 .row {
     display: -ms-flexbox; 
@@ -239,6 +255,7 @@ main {
     margin-top: 10px; 
     padding: 1rem; 
     background-color: #fffaf4;
+    /* width: 90%;  */
 }
 
 .image-container img {
@@ -247,6 +264,12 @@ main {
     width: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+    .col {
+        flex: 100%; 
+        max-width: 100%
+    }
+}
 /* 
     #########################################################################################################
 

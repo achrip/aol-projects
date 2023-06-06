@@ -87,23 +87,28 @@ header {
 }
 
 #navbar {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 60%;
-    height: 70px; 
+    position: fixed;
+    top: .5rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 80%;
+    height: 8%; 
     justify-content: space-between;   
-    margin: 3% 20%; 
     padding: 0 2em; 
-    z-index: 1;
+    z-index: 9;
     background-color: rgb(8, 33, 54);
     border-radius: 10px;
+
+    -webkit-box-shadow:0 0 10px rgb(60, 209, 250); 
+    -moz-box-shadow: 0 0 10px rgb(60, 209, 250); 
+    box-shadow:0 0 10px rgb(60, 209, 250)   ;
 }
 
 .logo { 
     height: 85px; 
-    width: 201px; 
-    margin-bottom: auto;
+    width: 201px;
+    margin: 0 0 auto 2rem; 
+    transform: scale(1.25);
 }
 
 #profile {
@@ -113,6 +118,7 @@ header {
     margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
+    transform: scale(1.35);
 }
 
 #menu {
@@ -143,7 +149,7 @@ header {
     height: 100%;
     color: white; 
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #menu li:hover{

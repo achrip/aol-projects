@@ -37,7 +37,7 @@ html {
     box-sizing: inherit;
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 768px) {
 
     #site-wrapper {
         display: flex; 
@@ -47,11 +47,11 @@ html {
     }
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 768px) {
     #site-wrapper {
         display: flex; 
         flex-direction: column;
-        max-width: 100svw;
+        min-width: 100dvw;
         background-color: antiquewhite;
     }
 }
@@ -92,10 +92,11 @@ html {
 
 header {
     position: relative;
-    height: calc(48rem + 1.9285vh);
+    max-height: calc(48rem + 1.9285vh);
     width: 100%; 
     z-index: 1; 
     background-color: antiquewhite;
+    aspect-ratio: 2/1;
 }
 .video-wrapper {
     position: absolute; 
@@ -116,22 +117,27 @@ header {
 
 #navbar {
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 60%;
-    height: 9%; 
+    top: .5rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 80%;
+    height: 8%; 
     justify-content: space-between;   
-    margin: 3% 20%; 
     padding: 0 2em; 
     z-index: 9;
     background-color: rgb(8, 33, 54);
     border-radius: 10px;
+
+    -webkit-box-shadow:0 0 10px rgb(60, 209, 250); 
+    -moz-box-shadow: 0 0 10px rgb(60, 209, 250); 
+    box-shadow:0 0 10px rgb(60, 209, 250)   ;
 }
 
 .logo { 
     height: 85px; 
-    width: 201px; 
-    margin-bottom: auto;
+    width: 201px;
+    margin: 0 0 auto 2rem; 
+    transform: scale(1.25);
 }
 
 #profile {
@@ -141,6 +147,7 @@ header {
     margin-right: 1rem; 
     display: inline-flex;
     margin-bottom: auto;
+    transform: scale(1.35);
 }
 
 #menu {
@@ -171,7 +178,7 @@ header {
     height: 100%;
     color: white; 
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #menu li:hover{
@@ -187,10 +194,10 @@ header {
     z-index: 3;
 }
 
-#title img {
+/* #title img {
     height: 35vh;
     width: 75vh;
-}
+} */
 
 
 /* 
@@ -212,20 +219,32 @@ main {
     z-index: 0; 
 }
 
+img {
+   width: 100%; 
+}
 .section-divider {
-    width: 100%; 
+    width: 100dvw; 
     height: fit-content;
     padding: 1ex; 
     position: relative;
+    margin: 1rem auto; 
+}
+
+.section-divider:first-of-type{
+    /* width: 1200px;  */
+    height: 60dvh; 
+    margin:auto; 
 }
 
 .content-wrapper {
-    width: 1200px; 
+    max-width: 80%;
     height: 100%; 
     margin: 1rem auto; 
     padding: 1rem; 
     display: flex; 
     flex-direction: row; 
+    align-items: center;
+    justify-content: center;
     position: relative;
     background-color: cornsilk; 
 }
@@ -233,9 +252,9 @@ main {
 .poster {
     position: relative;
     background-size: cover;
-    height: auto; 
-    max-width: 90%;
-    margin: 0 2%; 
+    height: fit-content; 
+    width: 90%;
+    margin: 0 1%; 
     text-align: justify;
 }
 
@@ -243,16 +262,12 @@ main {
     margin-top: 2rem; 
     margin-bottom: 1rem;
     font-size: 26px;
+    text-align: initial;
 }
 
-.section-divider:first-of-type{
-    width: 1200px; 
-    height: 450px; 
-    margin: 1em auto; 
-}
 
-@media only screen and (min-width: 1080px) {
-
+@media only screen and (min-width: 769px) {
+    
     .section-divider:nth-of-type(odd) .poster h1{
         direction: rtl;
     }
@@ -260,16 +275,15 @@ main {
     .section-divider:nth-of-type(odd) .content-wrapper{
         flex-direction: row-reverse;
     }
-}
 
+}
 
 #character-poster img{ 
     position: absolute;
-    top: -15%; 
     left: 50%;  
     transform: translateX(-50%); 
     max-width: 80%;
-    max-height: max-content;
+    height: auto; 
 }
 
 .slideshow-container {
@@ -312,10 +326,7 @@ main {
     background-color: cornsilk;
 }
 
-@media screen and (max-width: 810px) {
-    header {
-        display: none !important; 
-    }
+@media screen and (max-width: 768px) {
 
     main{
         top: 0;
