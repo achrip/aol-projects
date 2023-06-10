@@ -271,6 +271,7 @@ header {
         align-items: center;
         justify-content: center;
         z-index: 2;
+        box-shadow:0 0 10px rgb(60, 209, 250)   ;
     }
 
     .burger > span, 
