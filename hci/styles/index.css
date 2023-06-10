@@ -204,7 +204,7 @@ header {
     }
 
     .full-nav {
-        z-index: -1;
+        z-index: 2;
     }
     
     .full-nav ul {
@@ -273,18 +273,26 @@ header {
         z-index: 2;
     }
 
-    .burger .line {
-        transition: .5s ease-in-out;
+    .burger > span, 
+    .burger > span::before, 
+    .burger > span::after {
         display: block; 
-        height: 4px; 
+        position: absolute;
         width: 60%; 
-        border-radius: 10px;
-        background: #f0f0f0;
-        margin: .3rem 0; 
+        height: 5px; 
+        background-color: #f0f0f0;
+        transition-duration: .25s;
+
     }
 
-    .full-nav input[type="checkbox"]:checked ~ .logo{
-        display: none; 
+    .burger > span::before {
+        content: ' '; 
+        top: -13px; 
+    }
+
+    .burger > span::after {
+        content: ''; 
+        top: 13px; 
     }
 
     input[type="checkbox"]:checked ~ .full-nav{
@@ -294,7 +302,6 @@ header {
         height: 100%; 
         width: 100%; 
         background-image: url(https://seaofstarsgame.co/assets/dist/images/bg-pattern-sky-lg.png);
-        z-index: 2;
         display: flex; 
         flex-direction: column;
         align-items: center;
@@ -306,20 +313,23 @@ header {
         z-index: 3;
     }
 
-    input[type="checkbox"]:checked ~ .burger .line2 {
-        transition: .5s ease-in-out;
-        transform: rotate(-25deg);
-    }
-    
-    input[type="checkbox"]:checked ~ .burger .line3 {
-        display: none; 
+    input[type="checkbox"]:checked + .burger > span { 
+        width: 100%;
+        transform: rotate(45deg);
     }
 
-    input[type="checkbox"]:checked ~ .burger .line1 {
-        transition: .5s ease-in-out;
-        transform: rotate(25deg);
+    input[type="checkbox"]:checked + .burger > span::before{
+        width: 100%;
+        top: 0; 
+        transform: rotate(0deg);
     }
-    
+
+    input[type="checkbox"]:checked + .burger > span::after {
+        top: 0; 
+        width: 100%;
+        transform: rotate(90deg);
+    }
+
 }
 /* 
         ######################################################################################
