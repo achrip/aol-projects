@@ -204,18 +204,7 @@ header {
     }
 
     .full-nav {
-        position: fixed;
-        top: 0; 
-        left: 0; 
-        height: 100%; 
-        width: 100%; 
-        background-image: url(https://seaofstarsgame.co/assets/dist/images/bg-pattern-sky-lg.png);
-        z-index: 2;
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-        padding-top: 30dvh;
-        overflow: hidden;
+        z-index: -1;
     }
     
     .full-nav ul {
@@ -233,6 +222,22 @@ header {
         font-size: 2rem; 
         font-weight: 500;
         padding: 5px 50px; 
+    }
+
+    .full-nav ul li a:hover {
+        font-style: bolder;
+    }
+
+    .checkbox {
+        position: fixed;    
+        display: block; 
+        height: 4rem; 
+        width: 4rem; 
+        top: 20px; 
+        right: 20px; 
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
     }
 
     .logo {
@@ -269,6 +274,7 @@ header {
     }
 
     .burger .line {
+        transition: .5s ease-in-out;
         display: block; 
         height: 4px; 
         width: 60%; 
@@ -277,10 +283,43 @@ header {
         margin: .3rem 0; 
     }
 
-    .burger:active {
-        
+    .full-nav input[type="checkbox"]:checked ~ .logo{
+        display: none; 
     }
 
+    input[type="checkbox"]:checked ~ .full-nav{
+        position: fixed;
+        top: 0; 
+        left: 0; 
+        height: 100%; 
+        width: 100%; 
+        background-image: url(https://seaofstarsgame.co/assets/dist/images/bg-pattern-sky-lg.png);
+        z-index: 2;
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30dvh;
+        overflow: hidden;
+    }
+
+    input[type="checkbox"]:checked ~ .burger {
+        z-index: 3;
+    }
+
+    input[type="checkbox"]:checked ~ .burger .line2 {
+        transition: .5s ease-in-out;
+        transform: rotate(-25deg);
+    }
+    
+    input[type="checkbox"]:checked ~ .burger .line3 {
+        display: none; 
+    }
+
+    input[type="checkbox"]:checked ~ .burger .line1 {
+        transition: .5s ease-in-out;
+        transform: rotate(25deg);
+    }
+    
 }
 /* 
         ######################################################################################
