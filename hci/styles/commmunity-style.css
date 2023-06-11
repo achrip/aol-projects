@@ -22,6 +22,8 @@
         rgb(60, 209, 250),
         rgb(63, 217, 191));
     --white: #f0f0f0;
+    --tan: #f7f1e5;
+
 }
 
 html {
@@ -180,7 +182,16 @@ header {
     display: none; 
 }
 
+h1 {
+    margin-bottom: 3dvh ;
+    color: var(--tan); 
+    text-align: center;
+    font-size: 10vmin;
+}
+
 @media only screen and (max-width: 768px) {
+    header { height: 0; }
+
     #navbar {
         display: none; 
     }
