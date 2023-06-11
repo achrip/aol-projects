@@ -132,7 +132,7 @@ main {
 #profile {
     height: 3vmax; 
     width: 3.3vmax; 
-    margin-left: 5rem; 
+    margin-left: 3vmin; 
     margin-right: 1.5vmin; 
     display: inline-flex;
     margin-bottom: auto;
