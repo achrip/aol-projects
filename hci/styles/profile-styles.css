@@ -45,6 +45,16 @@ html {
     background-color: darkgray; 
 }
 
+@media screen and (max-width: 768px) {
+    #site-wrapper {
+        display: flex; 
+        flex-direction: column;
+        min-width: 100dvw;
+        background-color: antiquewhite;
+    }
+}
+
+
 .content-container {
     margin: 0 auto; 
     position: relative; 
@@ -171,7 +181,7 @@ main {
 }
 
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 768px) {
     #navbar {
         display: none; 
     }
@@ -329,7 +339,8 @@ main .section-wrapper {
 
 .content-wrapper { 
     position: relative; 
-    width: 1000px; 
+    min-width: 50%; 
+    max-width: 70%;
     height: fit-content;  
     margin: 3rem auto; 
     padding: 1rem; 
@@ -383,7 +394,7 @@ label {
 .form-group input {
     outline: none; 
     padding: .5rem 1rem; 
-    height: 3rem; 
+    height: 10%; 
     border: 2px solid white; 
     border-radius: .3rem; 
     font-size: 22px ;
@@ -413,6 +424,25 @@ a {
     color: #131b21;   
     background-position: right;
     box-shadow: 0 0 10px #f7f1e5;
+}
+
+@media only screen and (max-width: 768px) {
+    .content-wrapper {
+        min-width: 80%;
+    }
+
+    .reg-form {
+        max-width: 70%;
+    }
+
+    .form-group input {
+        font-size: smaller;
+        height: 1%; 
+    }
+
+    .confirm {
+        max-width: 70%;
+    }
 }
 /* 
     #########################################################################################################
