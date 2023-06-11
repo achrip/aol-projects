@@ -497,14 +497,12 @@ footer {
 }
 
 #links {
-    width: 70%;
+    width: 30%;
     display: flex; 
     padding-bottom: 1rem; 
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-/* @media only screen  (max-width:810px) {
-    footer {
-        display: none !important; 
-    }
-} */
+#links i {
+    cursor: pointer;
+}

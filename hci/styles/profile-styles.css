@@ -449,8 +449,12 @@ footer {
 }
 
 #links {
-    width: 70%;
+    width: 30%;
     display: flex; 
     padding-bottom: 1rem; 
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+#links i {
+    cursor: pointer;
 }
