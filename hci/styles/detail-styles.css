@@ -41,8 +41,17 @@ html {
 #site-wrapper {
     display: flex; 
     flex-direction: column;
-    min-width: 100vh;
+    min-width: 100dvw;
     background-color: darkgray; 
+}
+
+@media screen and (max-width: 768px) {
+    #site-wrapper {
+        display: flex; 
+        flex-direction: column;
+        min-width: 100dvw;
+        background-color: antiquewhite;
+    }
 }
 
 .content-container {
@@ -340,9 +349,10 @@ main .section-wrapper {
 } */
 
 .content-wrapper { 
-    width: 1000px; 
-    height: 80svh; 
-    margin: 3rem auto; 
+    position: relative;
+    top: 0;
+    max-width: 90%; 
+    margin: 0 auto 3rem auto; 
     background-color: cornsilk; 
     display: flex; 
     flex-direction: row;
@@ -361,22 +371,38 @@ main .section-wrapper {
 
 .details {
     height: 60%; 
-    width:50%;
-    padding-top: 3rem; 
+    width: 33%;
     display: flex; 
     flex-direction: column;
-    justify-content: space-between;
+    margin: 10dvh auto;
+}
 
+.details > p {
+    padding-top: 5%;
+    padding-right: 5%;
+}
+
+.splash {
+    width: 33%;
 }
 
 .slideshow-container {
-    max-width: 100%; 
-    margin: auto; 
+    width: 100%;
+    margin-top: 40%;
     position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px dotted #131b21;
 }
 
 .slides {
+    transition: .25s ease-in-out;
     display: none;
+}
+
+.slides > img {
+    margin-left: auto;
 }
 
 .prev,
@@ -387,7 +413,7 @@ main .section-wrapper {
     width: auto; 
     margin-top: -22px; 
     padding: 16px; 
-    color: white; 
+    color: black; 
     font-weight: bold; 
     font-size: 18px; 
     transition: .6s ease; 
@@ -400,11 +426,36 @@ main .section-wrapper {
     border-radius: 3px 0 0 3px;
 }
 
+.prev {
+    left: 0; 
+
+}
+
 .prev:hover, 
 .next:hover {
     color: #000; 
     background-color: cornsilk;
 } 
+
+@media only screen and (max-width: 768px) {
+    .sketch {
+        display: none; 
+    }
+
+    .content-wrapper {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .details,
+    .splash {
+        margin-top: 5dvh; 
+        min-width: 80%; 
+    }
+    
+    .slideshow-container { margin: 0; }
+}
 
 
 /* 
@@ -424,7 +475,7 @@ footer {
     width: 100%; 
     height: 10vh;
     color: white;
-    background-color: #0a4779;
+    background-color: #131b21;
 }
 
 #links {
