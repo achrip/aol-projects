@@ -11,4 +11,4 @@ List of resources and/or references that was used on the making of this project:
 * [Lily Images](https://sakaefly.exblog.jp)
 * [Character Images](https://seaofstarsgame.co/)
 * [Character GIFs](https://seaofstarsgame.co/)
-
+* [Email Validation](https://stackoverflow.com/questions/30415594/email-validation-in-java-without-using-regular-expression)
