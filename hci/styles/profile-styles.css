@@ -381,7 +381,7 @@ label {
     height: 10%; 
     border: 2px solid white; 
     border-radius: .3rem; 
-    font-size: 22px ;
+    font-size: 2vmin ;
 }
 
 a {
@@ -390,7 +390,7 @@ a {
 }
 
 #signup-btn {
-    margin: 5rem 0; 
+    margin: 3% 0; 
     width: 60%; 
     height: 5rem; 
     font-family: inherit;
@@ -402,6 +402,9 @@ a {
     background-image: linear-gradient(45deg, rgb(87, 33, 204), rgb(60, 209, 250),rgb(63, 217, 191));
     background-size: 300% auto;
     background-position: left;
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
 }
 
 #signup-btn:hover {
@@ -410,16 +413,51 @@ a {
     box-shadow: 0 0 10px #f7f1e5;
 }
 
+.confirm {
+    width: fit-content;
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+#err {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.err-msg {
+    list-style: none; 
+    font-size: 1.5vmax; 
+    color: red;
+}
+
+.err-msg li {
+    text-align: center;
+}
+
+.form-group > select {
+    outline: none; 
+    padding: .5rem 1rem; 
+    height: 10%; 
+    border: 2px solid white; 
+    border-radius: .3rem; 
+    font-size: 2vmin ;
+}
+
 @media only screen and (max-width: 768px) {
     .content-wrapper {
-        min-width: 80%;
+        min-width: 90%;
     }
 
-    .reg-form {
-        max-width: 70%;
+    #reg-form {
+        min-width: 90%;
     }
 
-    .form-group input {
+    .form-group input,
+    .form-group select {
         font-size: smaller;
         height: 1%; 
     }
@@ -427,7 +465,11 @@ a {
     .confirm {
         max-width: 70%;
     }
-}
+
+    #signup-btn {
+        font-size: 6vmin;
+    }
+}   
 /* 
     #########################################################################################################
 
