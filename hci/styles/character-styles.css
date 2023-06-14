@@ -348,6 +348,11 @@ main {
     max-width: 25%;
     flex: 25%; 
     transition: .3s ease;
+    text-align: center;
+}
+
+.characters h3 {
+    margin-top: 10%; 
 }
 
 .characters img {
