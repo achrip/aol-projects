@@ -19,6 +19,7 @@ NIM: 2602171161
 ### Scientific Computing - 2022/2023 Even Semester
 
 # %% [markdown]
+## Number 1
 The relationship between the average temperature on the earth's 
 surface in odd years between 1981 - 1999, is given by the following below:
 | Year(y) | Temperature(x, °C) | 
@@ -42,6 +43,7 @@ and explain the difference
 # %% 
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # %%
 # Create dictionary from the above table
@@ -131,15 +133,15 @@ sortedY = Y.copy()
 sortedX.sort()
 sortedY.sort()
 f = CubicSpline(sortedY, sortedX, bc_type='natural')
-y_new = np.linspace(0, 2000, 100000)
+y_new = np.linspace(0, 2, 100)
 x_new = f(y_new)
 
 print(x)
 print(y)
 
 plt.figure(figsize=(10,8))
-plt.plot(y_new, x_new, 'c')
-plt.plot(y, x, 'rv')
+#plt.plot(y_new, x_new, 'c')
+plt.plot(sortedY, sortedX, 'rv')
 plt.title('Cubic Spline Interpolation')
 plt.xlabel("Temperature")
 plt.ylabel("Year")
@@ -165,3 +167,89 @@ plt.ylabel("Year")
 plt.title('Least Square Regression Graph')
 plt.show()
  
+# %% [markdown]
+c) Perform an analysis of the difference between the results of the regression
+and interpolations you can above, explain based on the theoretical basis you
+have learned.
+
+# %%
+
+# %% [markdown]
+d) Make a plot that describes the relationship between Temperature(y) and
+Year(x) as informatively as possible for the reader, based on the results
+of your analysis using Python library.
+
+# %% [markdown]
+## Number 2
+Compute the fourth order Taylor Expansion for $sin(x)$ and $cos(x)$ and 
+$sin(x)cos(x)$ around 0.  
+
+
+# %% [markdown]
+a) Write down your manual calculation and Python script to answer above's 
+question  
+Manual Calculation:  
+![]()
+
+# %% 
+# Python Script
+
+# taylor expansion of sin(x)
+x = np.linspace (-np.pi, np.pi, 200)
+y = np.zeros(len(x))
+
+labels = ['First Order', 'Third Order', 'Fifth Order', 'Seventh Order']
+
+plt.figure(figsize=(10,8))
+for n, label in zip(range(4), labels): 
+    y = y + ((-1)**n * (x)**(2*n+1)) / np.math.factorial(2*n+1)
+    plt.plot(x, y, label = label)
+
+plt.plot(x, np.sin(x), 'k', label = 'Analytic')
+plt.grid()
+plt.title('Taylor Series Approximations of Various Orders')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+
+# %% 
+# taylor expansion of cos(x)
+x = np.linspace (-np.pi, np.pi, 200)
+y = np.zeros(len(x))
+
+labels = ['First Order', 'Second Order', 'Third Order', 'Fourth Order']
+
+plt.figure(figsize=(10,8))
+for n, label in zip(range(4), labels): 
+    y = y + ((-1)**n * (x)**(2*n)) / np.math.factorial(2*n)
+    plt.plot(x, y, label = label)
+
+plt.plot(x, np.cos(x), 'k', label = 'Analytic')
+plt.grid()
+plt.title('Taylor Series Approximations of Various Orders')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+
+
+# %% 
+# taylor expansion of sin(x)cos(x)
+x = np.linspace (-np.pi, np.pi, 200)
+y = np.zeros(len(x))
+
+labels = ['First Order', 'Second Order', 'Third Order', 'Fourth Order']
+
+plt.figure(figsize=(10,8))
+for n, label in zip(range(4), labels): 
+    plt.plot(x, y, label = label)
+
+plt.plot(x, np.cos(x)*np.sin(x), 'k', label = 'Analytic')
+plt.grid()
+plt.title('Taylor Series Approximations of Various Orders')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+
